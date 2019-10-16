@@ -27,35 +27,16 @@ public class StudentTest {
 
 	@Test
 	public void testCompareTo() throws NameException {
-		Student firstStudent = new Student("x", "Y", 2);
-		Student secondStudent = new Student("x", "Y", 3);
-
-		int actual = secondStudent.compareTo(firstStudent);
-
-		boolean result = false;
-
-		// should be bigger than zero
-		if (actual > 0)
-			result = true;
-		assertTrue(result);
-
-		result = false;
-
-		// should be less than 0
-		Student student = new Student("x", "Y", 5);
-		actual = secondStudent.compareTo(student);
-		if (actual < 0)
-			result = true;
-		assertTrue(result);
-
-		result = false;
-
-		// should be the same, therefore should be 0
-		Student studentSame = new Student("x", "y", 5);
-		actual = secondStudent.compareTo(studentSame);
-		int expected = 0;
-		assertEquals(expected, actual);
-
+		Student firstStudent = new Student("A", "B", 2);
+		Student secondStudent = new Student("A", "C", 3);
+		Student student = new Student("A", "A", 5);
+		Student empty = new Student("Z", "", 3);
+		Student secondEmpty = new Student("x", "", 3);
+		
+		CompareLastFirstName clfn = new CompareLastFirstName();
+		
+		clfn.compare(firstStudent, secondStudent);
+		
 	}
 
 	@Test
